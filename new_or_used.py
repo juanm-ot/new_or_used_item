@@ -127,29 +127,29 @@ def train_and_evaluate_model(X_train, X_val, y_train, y_val):
         model_catboost = CatBoostClassifier(random_state=42, silent=True)  
         model_catboost.fit(X_train, y_train, eval_set=(X_val, y_val), verbose=100, plot=True)
 
-        # Métricas en el conjunto de entrenamiento
+        # Train evaluation metrics
         y_train_pred = model_catboost.predict(X_train)
         train_accuracy = accuracy_score(y_train, y_train_pred)
         train_f1 = f1_score(y_train, y_train_pred)
 
-        # Métricas en el conjunto de validación
+        # Test evaluation metrics
         y_val_pred = model_catboost.predict(X_val)
         val_accuracy = accuracy_score(y_val, y_val_pred)
         val_f1 = f1_score(y_val, y_val_pred)
 
         logging.info(f"Model metrics:")
-        # Imprimir los resultados
+        
         print(f"Accuracy en entrenamiento: {train_accuracy:.4f}")
         print(f"F1-Score en entrenamiento: {train_f1:.4f}")
         print(f"Accuracy en validación: {val_accuracy:.4f}")
         print(f"F1-Score en validación: {val_f1:.4f}")  
 
-        # Guardar el modelo
+        # Save model
         logging.info(f"Exporting model...")
         model_catboost.save_model("new_or_used_catboost_model.cbm")
         logging.info(f"Model exported succesfully")
 
-        # Devolver las predicciones y métricas
+        # Return predictions and metrics
         metrics = {
             'train_accuracy': train_accuracy,
             'train_f1': train_f1,
