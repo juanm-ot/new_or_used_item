@@ -97,3 +97,24 @@ Dado que en este caso las clases de artículos nuevos y usados están ligerament
 * Exploración de técnicas NLP para descripciones de productos: Se podría integrar procesamiento de lenguaje natural (NLP) en el modelo para extraer información valiosa de las columnas que contienen descripciones textuales. Aunque en algunos casos las descripciones pueden contener información explícita sobre si el artículo es "nuevo" o "usado", siendo tautologico, esta información podría asignarse un peso específico en el modelo. Un enfoque interesante sería ensamblar un modelo basado en NLP junto con el actual para evaluar su impacto en el rendimiento global y la precisión del sistema.
 
 * Optimización basada en la importancia de características: A partir del análisis de la importancia de las características (feature importance) en el modelo final, se pueden identificar aquellas variables que aportan poco o nada a la predicción. Iterar en la eliminación de estas características irrelevantes no solo simplificará el modelo, sino que también reducirá el riesgo de sobreajuste (overfitting) y mejorará tanto el tiempo de entrenamiento como el de predicción, haciéndolo más eficiente y manejable en un entorno de producción.
+
+## Estructura repositorio
+
+```linux
+
+.
+├── readme.md                          # descripcion del repositorio
+├── functions.py                       # funciones para procesamiento de datos
+├── new_or_used.py                     # orquesta los procesos para correr, evaluar y almacenar el modelo
+│
+├── notebooks                          # archivos de exploracion de procesos
+│   │── data_preparation.ipynb
+│   │── models.ipynb
+│   └── best_model.ipynb
+
+├── assets                             # carpeta para almacenar recursos de apoyo
+│   └── algún-archivo
+│
+└── requirements.txt                   # requerimientos para correr el repositorio
+
+```

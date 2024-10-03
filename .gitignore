@@ -3,3 +3,4 @@ df_to_model_encoded_cat.csv
 MLA_100k.jsonlines
 __pycache__
 env
+data
